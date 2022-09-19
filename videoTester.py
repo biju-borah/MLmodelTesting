@@ -1,11 +1,7 @@
 import cv2
 import dlib
 import numpy as np
-from keras.preprocessing import image
-from sklearn.metrics import euclidean_distances
 from keras.models import load_model
-import matplotlib.pyplot as plt
-import tensorflow as tf
 from scipy import stats
 
 model1 = load_model("model1", compile=False)
