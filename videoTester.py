@@ -1,5 +1,4 @@
 import cv2
-import dlib
 import numpy as np
 from keras.models import load_model
 from scipy import stats
@@ -33,24 +32,24 @@ while True:
     finalpred1 = (predictions1+predictions2 +
                   predictions3+predictions4+predictions5)/5
     predict1 = np.argmax(finalpred1, axis=1)
-    print(predict1)
+    # print(predict1)
 
     finalpred2 = np.array(
         [predictions1, predictions2, predictions3, predictions4, predictions5])
     pr2 = stats.mode(finalpred2, axis=0)
-    print(pr2)
+    # print(pr2)
     p = np.array(pr2[0])
     print(p)
 
     finalpred3 = (predictions1*0.1651)+(predictions2*0.2256) + \
         (predictions3*0.1865)+(predictions4*0.2089)+(predictions5*0.2138)
-    print(finalpred3)
+    # print(finalpred3)
     predict3 = np.argmax(finalpred3, axis=1)
-    print(predict3)
-    print(predict3.shape)
+    # print(predict3)
+    # print(predict3.shape)
 
     print(labels_class[np.argmax(predict1)])
-    print(labels_class[np.argmax(pr2)])
+    print(labels_class[np.argmax(p)])
     print(labels_class[np.argmax(predict3)])
     cv2.imshow("test", test_img)
 
